@@ -88,6 +88,7 @@ class SelectPoles:
         self.fig.canvas.mpl_connect('button_press_event', lambda x: self.on_click(x))
 
         self.root.protocol("WM_DELETE_WINDOW", lambda: self.on_closing())
+        tk.Button(self.root, text="Quit", command=self.__quit).pack()
         self.root.mainloop()
 
 
@@ -404,5 +405,7 @@ class SelectPoles:
 
         self.fig.savefig(f)
 
-
-
+    
+    def __quit(self):
+        self.root.quit()
+        self.root.destroy()
